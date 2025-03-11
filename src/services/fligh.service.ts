@@ -19,8 +19,7 @@ export class FlightService {
             params: {
                 'page': page,
                 'size': size,
-                'sort': 'sheduledAt,asc',
-                'type': 'departure'
+                'sort': 'id,desc',
             }
         })
     }
