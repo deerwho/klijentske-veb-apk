@@ -20,6 +20,7 @@ export class FlightService {
                 'page': page,
                 'size': size,
                 'sort': 'id,desc',
+                'projection': 'flightProjection'            
             }
         })
     }
