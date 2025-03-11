@@ -3,7 +3,7 @@
     <p class="error-message">{{error}}</p>
 </div>
 <div *ngIf="flights">
-    <p *ngFor="let flight of flights">{{flight.id}} {{flight.destination}}</p>
+    <p *ngFor="let flight of flights">{{flight.id}} {{flight.destination}}{{flight.flightKey}}</p>
     <pre>{{flights | json}}</pre>
 </div>
 

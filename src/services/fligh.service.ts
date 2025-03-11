@@ -1,7 +1,7 @@
-import axios from "axios";
+import axios from 'axios';
 
 const client = axios.create({
-        baseURL: 'https://flight.pequla.com/api',
+        baseURL: process.env['FLIGHT_API_BASE_URL'] || 'https://flight.pequla.com/api',
         headers: {
             'Accept': 'application/json',
             'X-Client-Name': 'KVA/2025',
@@ -26,6 +26,12 @@ export class FlightService {
     }
 
     static async getFlightById(id: number) {
-        return axios.get(`/flight/${id}`)
+        try {
+            const response = await client.get(`/flight/${id}`);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching flight by ID:', error);
+            throw new Error('Failed to fetch flight by ID');
+        }
     }
 }
