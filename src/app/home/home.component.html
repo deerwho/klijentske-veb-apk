@@ -1,0 +1,13 @@
+<div>
+    <h3>Oops, an error occured</h3>
+    <p style="color: red;">{{error}}</p>
+</div>
+<div *ngIF="flights">
+    <p *ngFor="let flight of flights"><{{flight.id}} {{flight.destination}}</p>
+    <pre>{{flights | json}}</pre>
+</div>
+
+<div *ngIf="!flights && !error">
+    <p>Loading...</p>
+
+</div>
