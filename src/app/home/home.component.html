@@ -1,12 +1,34 @@
-<div>
-    <h3>Oops nista </h3>
-    <p class="error-message">{{error}}</p>
-</div>
-<div *ngIf="flights">
-    <p *ngFor="let flight of flights">{{flight.id}} {{flight.destination}}{{flight.flightKey}}</p>
-    <pre>{{flights | json}}</pre>
+<div *ngIf="error" class="error-container">
+    <h3>Oops, nešto nije u redu! 😢</h3>
+    <p class="error-message">{{ error }}</p>
 </div>
 
-<div *ngIf="!flights && !error">
-    <p>Loading...</p>
+<div *ngIf="movies && movies.length > 0">    
+    <h2>Lista Filmova</h2>
+    <div class="movies-container">
+        <div class="movie-card" *ngFor="let movie of movies">
+            <img [src]="movie.poster" [alt]="movie.title" class="movie-poster">
+            <div class="movie-info">
+                <h3>{{ movie.title }} ({{ movie.originalTitle }})</h3>
+                <p><strong>Opis:</strong> {{ movie.description }}</p>
+                <p><strong>Trajanje:</strong> {{ movie.runTime }} min</p>
+                <p><strong>Režiser:</strong> {{ movie.director }}</p>
+                <p><strong>Glumci:</strong> 
+                    <span *ngFor="let actor of movie.movieActors">
+                        {{ actor.actor.name }}{{ actor !== movie.movieActors[movie.movieActors.length - 1] ? ', ' : '' }}
+                    </span>
+                </p>
+                <p><strong>Žanrovi:</strong> 
+                    <span *ngFor="let genre of movie.movieGenres">
+                        {{ genre.genre.name }}{{ genre !== movie.movieGenres[movie.movieGenres.length - 1] ? ', ' : '' }}
+                    </span>
+                </p>
+                <p><strong>Početak prikazivanja:</strong> {{ movie.startDate }}</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template>

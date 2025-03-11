@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FlightService } from '../../services/fligh.service';
+import { MovieService } from '../../services/movie.service';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { AxiosError } from 'axios';
-import { FlightModel } from '../../model/flight.model';
+import { MovieModel } from '../../model/movie.model';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +11,14 @@ import { FlightModel } from '../../model/flight.model';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  public flights: FlightModel[] | null = null
+  public movies: MovieModel[] | null = null
   public error: string | null = null 
+isDevMode: any;
   
 
     constructor() {
-    FlightService.getFlight()
-    .then(rsp => this.flights = rsp.data.content)
+    MovieService.getMovies()
+    .then(rsp => this.movies = rsp.data.content)
     .catch((e: AxiosError) => this.error = `${e.code}: ${e.message}`)
   } 
 }
