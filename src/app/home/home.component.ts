@@ -12,13 +12,13 @@ import { MovieModel } from '../../model/movie.model';
 })
 export class HomeComponent {
   public movies: MovieModel[] | null = null
-  public error: string | null = null 
-isDevMode: any;
-  
+  public error: string | null = null
+  isDevMode: any;
 
-    constructor() {
+
+  constructor() {
     MovieService.getMovies()
-    .then(rsp => this.movies = rsp.data.content)
-    .catch((e: AxiosError) => this.error = `${e.code}: ${e.message}`)
-  } 
+      .then(rsp => this.movies = rsp.data)
+      .catch((e: AxiosError) => this.error = `${e.code}: ${e.message}`)
+  }
 }

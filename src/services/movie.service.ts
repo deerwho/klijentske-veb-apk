@@ -10,25 +10,10 @@ const client = axios.create({
     }
 });
 export class MovieService {
-    static async getMovies(page?: number, size?: number) {
-        try{
-            const response = await client.get('/movie', {
-                params: {
-                    page: 'page', 
-                    size: 'size'
-                }
-            });
-            console.log('API Response:', response);
-            if (!response.data) {
-            throw new Error('No data received from API');
-        }
-        return response.data.data;
-        }
-        catch (error) {
-            console.error('Error fetching movies:', error);
-            throw new Error('Failed to fetch movies');
-        }
-    }
+    static console: any;
+    static async getMovies() {
+        return client.get('/movie')
+    };
     static async getMovieById(id: number) {
         try {
             const response = await client.get(`/movie/${id}`);

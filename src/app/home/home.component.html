@@ -12,7 +12,7 @@
                 <h3>{{ movie.title }} ({{ movie.originalTitle }})</h3>
                 <p><strong>Opis:</strong> {{ movie.description }}</p>
                 <p><strong>Trajanje:</strong> {{ movie.runTime }} min</p>
-                <p><strong>Režiser:</strong> {{ movie.director }}</p>
+                <p><strong>Režiser:</strong> {{ movie.director.name }}</p>
                 <p><strong>Glumci:</strong> 
                     <span *ngFor="let actor of movie.movieActors">
                         {{ actor.actor.name }}{{ actor !== movie.movieActors[movie.movieActors.length - 1] ? ', ' : '' }}
