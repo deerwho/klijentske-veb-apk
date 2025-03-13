@@ -1,34 +1,28 @@
-<div *ngIf="error" class="error-container">
-    <h3>Oops, nešto nije u redu! 😢</h3>
-    <p class="error-message">{{ error }}</p>
+<div *ngIf="movies && movies.length > 0" class="container">
+    <mat-card class="example-card" appearance="outlined" *ngFor="let movie of movies | slice:0:3">
+        <img mat-card-image src={{movie.poster}} alt="movie-poster" [alt]="movie.poster">
+        <mat-card-content>
+            <h1>{{movie.title}}</h1>
+            <p>{{movie.shortDescription}}</p>
+            <p>Režiser: {{movie.director.name}}</p>
+            <p>Glumci:
+                <span *ngFor="let actor of movie.movieActors">
+                    {{ actor.actor.name }}{{ actor !== movie.movieActors[movie.movieActors.length - 1] ? ', ' : '' }}
+                </span>
+            </p>
+            <p>{{movie.startDate}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button> <i class="fa-solid fa-up-right-from-square"></i> See more </button>
+            <button mat-button><i class="fa-regular fa-credit-card"></i> Buy Ticket </button>
+        </mat-card-actions>
+    </mat-card>
 </div>
-
-<div *ngIf="movies && movies.length > 0">    
-    <h2>Lista Filmova</h2>
-    <div class="movies-container">
-        <div class="movie-card" *ngFor="let movie of movies">
-            <img [src]="movie.poster" [alt]="movie.title" class="movie-poster">
-            <div class="movie-info">
-                <h3>{{ movie.title }} ({{ movie.originalTitle }})</h3>
-                <p><strong>Opis:</strong> {{ movie.description }}</p>
-                <p><strong>Trajanje:</strong> {{ movie.runTime }} min</p>
-                <p><strong>Režiser:</strong> {{ movie.director.name }}</p>
-                <p><strong>Glumci:</strong> 
-                    <span *ngFor="let actor of movie.movieActors">
-                        {{ actor.actor.name }}{{ actor !== movie.movieActors[movie.movieActors.length - 1] ? ', ' : '' }}
-                    </span>
-                </p>
-                <p><strong>Žanrovi:</strong> 
-                    <span *ngFor="let genre of movie.movieGenres">
-                        {{ genre.genre.name }}{{ genre !== movie.movieGenres[movie.movieGenres.length - 1] ? ', ' : '' }}
-                    </span>
-                </p>
-                <p><strong>Početak prikazivanja:</strong> {{ movie.startDate }}</p>
-            </div>
-        </div>
-    </div>
+<div *ngIf="!movies && !error" class="container">
+    <mat-card class="loading" appearance="outlined">
+        <mat-card-content>
+            <h1>Please Wait</h1>
+            <p>We are processing your data...</p>
+        </mat-card-content>
+    </mat-card>
 </div>
-
-<ng-template #loading>
-    <p>Loading...</p>
-</ng-template>

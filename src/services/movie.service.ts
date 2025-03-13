@@ -11,7 +11,7 @@ const client = axios.create({
 });
 export class MovieService {
     static console: any;
-    static async getMovies() {
+    static async getMovies( page: number = 0, size: number = 3) {
         return client.get('/movie')
     };
     static async getMovieById(id: number) {

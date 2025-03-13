@@ -1,9 +1,50 @@
 html,
 body {
     height: 100%;
+    background-color: #282c34;
+    color: white;
 }
-
+a{
+    color: white;
+    text-decoration: solid;
+}
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.example-card {
+    max-width: 300px;
+    max-height: 3000px;
+    margin: 10px;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.726);
+}
+.loading{
+    text-align: center;
+    width: 700px;
+    height: 300px;
+    align-items: center;
+}
+.searchContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-card-search {
+    flex: 1 1 calc(25% - 1em); /* Adjust the percentage to control the number of cards per row */
+    max-width: 200px; /* Adjust the max-width as needed */
+    margin: 15px;
+}
+.movie-poster-search {
+    width: 100%; /* Ensure the image fits within the card */
+    height: auto; /* Maintain aspect ratio */
 }
