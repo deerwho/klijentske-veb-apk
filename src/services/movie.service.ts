@@ -15,12 +15,6 @@ export class MovieService {
         return client.get('/movie')
     };
     static async getMovieById(id: number) {
-        try {
-            const response = await client.get(`/movie/${id}`);
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching movie by ID:', error);
-            throw new Error('Failed to fetch movie by ID');
-        }
-    }
+        return axios.get(`/movie/${id}`);
+        } 
 }

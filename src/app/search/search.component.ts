@@ -5,11 +5,12 @@ import { MovieService } from '../../services/movie.service';
 import { MovieModel } from '../../model/movie.model';
 import { AxiosError } from 'axios';
 import { CommonModule } from '@angular/common';
+import { LoadingComponent } from "../loading/loading.component";
 
 
 @Component({
   selector: 'app-search',
-  imports: [MatButtonModule, MatCardModule, CommonModule],
+  imports: [MatButtonModule, MatCardModule, CommonModule, LoadingComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
