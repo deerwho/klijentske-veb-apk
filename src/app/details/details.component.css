@@ -1,0 +1,15 @@
+.movie-card{
+    width: 70%;
+    height: auto;   
+    max-height: 650px;
+    overflow-y: auto;
+}
+.movie-content{
+    display: flex;
+    gap: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.movie-content img{
+    max-width: 500px;
+}

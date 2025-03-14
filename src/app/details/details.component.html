@@ -1,8 +1,41 @@
 <div class="wrapper" NgIf="movie">
-    <img mat-card-image src={{movie?.poster}} alt="movie-poster" [alt]="movie?.poster">
-    <pre>
+    <!--<img mat-card-image src={{movie?.poster}} alt="movie-poster" [alt]="movie?.poster">
+    //<pre>
         {{movie | json}}
-    </pre>
+    </pre> -->
+    <h1>{{movie?.title}} <style>
+            h1 {
+                color: white;
+                font-weight: 900;
+                font-size: 2em;
+                font-weight: 400;
+                margin: 0;
+                padding: 0;
+                text-align: center;
+            }
+        </style>
+    </h1>
+    <p></p>
+    <div class="movie-content">
+        <img mat-card-image src={{movie?.poster}} alt="movie-poster" [alt]="movie?.poster">
+        <mat-card class="movie-card" appearance="outlined">
+            <mat-card-content>
+                <mat-list role="list">
+                    <mat-list-item>{{movie?.originalTitle}}</mat-list-item>
+                    <mat-list-item>{{movie?.description}}</mat-list-item>
+                    <mat-list-item>{{movie?.runTime}}</mat-list-item>
+                    <mat-list-item>{{movie?.director?.name}}</mat-list-item>
+                    <mat-list-item>{{movie?.movieGenres}}</mat-list-item>
+                    <mat-list-item>{{movie?.startDate}}</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
 </div>
 
 <app-loading *ngIf="!movie"></app-loading>
