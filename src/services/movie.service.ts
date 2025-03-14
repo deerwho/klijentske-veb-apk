@@ -15,6 +15,6 @@ export class MovieService {
         return client.get('/movie')
     };
     static async getMovieById(id: number) {
-        return axios.get(`/movie/${id}`);
+        return client.get(`/movie/${id}`);
         } 
 }

@@ -1,0 +1,8 @@
+<div class="wrapper" NgIf="movie">
+    <img mat-card-image src={{movie?.poster}} alt="movie-poster" [alt]="movie?.poster">
+    <pre>
+        {{movie | json}}
+    </pre>
+</div>
+
+<app-loading *ngIf="!movie"></app-loading>
