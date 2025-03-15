@@ -8,7 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
-
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   imports: [CommonModule, MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, FormsModule,],
@@ -20,14 +21,14 @@ export class LoginComponent {
   public email: string = ''
   public password: string = ''
 
-  public updateEmail(e: any) {
-    this.email = e.target.value
-  }
-  public updatePassword(e: any) {
-    this.password = e.target.value
-}
-  
-    public doLogin() {
-      alert(`${this.email} ${this.password}`)
-}
+  constructor(private router: Router) { }
+
+    public doLogin(){ 
+      if (UserService.login(this.email, this.password)) {
+        this.router.navigate(['/home']);
+        return;
+      }
+
+      alert('Invalid email or password');
+    }
 }
