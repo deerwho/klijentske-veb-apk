@@ -21,11 +21,17 @@ export class LoginComponent {
   public email: string = ''
   public password: string = ''
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+      if (UserService.getActiveUser()) {
+          router.navigate(['/user']);
+          return;
+      }
+
+   }
 
     public doLogin(){ 
       if (UserService.login(this.email, this.password)) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/user']);
         return;
       }
 

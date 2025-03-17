@@ -7,7 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { LoadingComponent } from "../loading/loading.component";
 import { UtilsService } from '../utils.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { MatCard } from '@angular/material/card';
+import { MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-home',

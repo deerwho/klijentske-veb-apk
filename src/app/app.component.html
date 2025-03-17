@@ -1,10 +1,28 @@
 <mat-toolbar color="primary">
     <span><i class="fa-solid fa-film"></i> iMooovies</span>
+
     <span class="spacer"></span>
+
     <a routerLink="/" mat-button><i class="fa-solid fa-house"></i> Home</a>
-    <a routerLink="/search" mat-button><i class="fa-solid fa-magnifying-glass"></i> Search </a>
-    <a routerLink="/login" mat-button><i class="fa-solid fa-user"></i> Login </a>
+
+    <a routerLink="/search" mat-button><i class="fa-solid fa-magnifying-glass"></i> Search 
+    </a>
+
+    <a routerLink="/login" mat-button *ngIf="!service.getActiveUser()">
+        <i class="fa-solid fa-sign-in"></i> Login 
+    </a>
+
+    <a routerLink="/user" mat-button *ngIf="service.getActiveUser()">
+        <i class="fa-solid fa-user"></i> Profile 
+    </a>
+
+    <button mat-button *ngIf="service.getActiveUser()" (click)="doLogout()">
+        <i class="fa-solid fa-right-from-bracket"></i> Log Out
+    </button>
+
     <a routerLink="/register" mat-button><i class="fa-solid fa-user-plus"></i> Register </a>
+
     <a routerLink="/cart" mat-button><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+
 </mat-toolbar>
 <router-outlet />

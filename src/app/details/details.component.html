@@ -1,8 +1,4 @@
 <div class="wrapper" NgIf="movie">
-    <!--<img mat-card-image src={{movie?.poster}} alt="movie-poster" [alt]="movie?.poster">
-    //<pre>
-        {{movie | json}}
-    </pre> -->
     <h1>{{movie?.title}} <style>
             h1 {
                 color: white;
@@ -21,21 +17,23 @@
         <mat-card class="movie-card" appearance="outlined">
             <mat-card-content>
                 <mat-list role="list">
-                    <mat-list-item> Movie Title : {{movie?.originalTitle}}</mat-list-item>
-                    <mat-list-item> Movie Description: {{movie?.description}}</mat-list-item>
-                    <mat-list-item> RunTime: {{movie?.runTime}}</mat-list-item>
-                    <mat-list-item> Movie Director: {{movie?.director?.name}}</mat-list-item>
-                    <mat-list-item> Movie Genre: {{movie?.movieGenres}}</mat-list-item>
-                    <mat-list-item> Movie Date: {{movie?.startDate}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-heading"></i> Movie Title : {{movie?.originalTitle}}</mat-list-item>
+                    <mat-list-item> <i class="fa-regular fa-hourglass-half"></i> RunTime: {{movie?.runTime}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-user-tie"></i> Movie Director: {{movie?.director?.name}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-star"></i> Movie Actors: {{getActors()}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-tape"></i> Movie Genre: {{getGenres()}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-calendar"></i> Movie Date: {{movie?.startDate}}</mat-list-item>
                 </mat-list>
+                <p class="movie-desc"> Movie Description:</p>
+                <p class="movie-description"> {{movie?.description}}</p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button> <i class="fa-solid fa-thumbs-up"></i> LIKE </button>
-                <button mat-button>BUY CARD</button>
+                <button class="like" mat-button><i class="fa-solid fa-thumbs-up"></i> LIKE </button>
+                <a mat-button [routerLink]="['/details/'+movie?.movieId+'/order']"> <i
+                        class="fa-solid fa-cart-shopping"></i> BUY TICKET </a>
             </mat-card-actions>
         </mat-card>
     </div>
-
 </div>
 
 <app-loading *ngIf="!movie"></app-loading>

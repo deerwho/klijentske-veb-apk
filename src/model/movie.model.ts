@@ -26,16 +26,17 @@ export interface MovieModel {
             actorId: number;
             name: string;
             createdAt: string;
-        }}[];
-        movieGenres: {
-            movieGenreId: number;
-            movieId: number;
+        }
+    }[];
+    movieGenres: {
+        movieGenreId: number;
+        movieId: number;
+        genreId: number;
+        genre: {
             genreId: number;
-            genre:{
-                genreId: number;
-                name: string;
-                createdAt: string;
-            }
+            name: string;
+            createdAt: string;
+        }
 
-        }[];
-    }
+    }[];
+}

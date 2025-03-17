@@ -14,7 +14,8 @@
         </mat-card-content>
         <mat-card-actions>
             <a mat-button [routerLink]="['/details/', movie.movieId]"> <i class="fa-solid fa-up-right-from-square"></i> Details </a>
-            <a mat-button><i class="fa-regular fa-credit-card"></i> Buy Ticket </a>
+            <a mat-button [routerLink]="['/details/'+movie?.movieId+'/order']"> <i
+                class="fa-solid fa-cart-shopping"></i> Buy Ticket </a>
         </mat-card-actions>
     </mat-card>
 </div>
