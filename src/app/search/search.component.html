@@ -1,3 +1,52 @@
+<h1>Search: </h1>
+<mat-card>
+    <mat-card-content>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Title</mat-label>
+            <input type="text" matInput placeholder="Enter movie name..." (keyup)="doSearchByTitle($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Description</mat-label>
+            <input type="text" matInput placeholder="Enter movie description..." (keyup)="doSearchByDescription($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Genre</mat-label>
+            <input type="text" matInput placeholder="Enter movie genre..." (keyup)="doSearchByGenre($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Duration</mat-label>
+            <input type="text" matInput placeholder="Enter movie duration..." (keyup)="doSearchByDuration($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Director </mat-label>
+            <input type="text" matInput placeholder="Enter movie director..." (keyup)="doSearchByDirector($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Actor </mat-label>
+            <input type="text" matInput placeholder="Enter movie actos..." (keyup)="doSearchByActor($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Release Date </mat-label>
+            <input type="text" matInput placeholder="Enter movie release date..." (keyup)="doSearchByReleaseDate($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Projection Date </mat-label>
+            <input type="text" matInput placeholder="Enter movie projection date..." (keyup)="doSearchByProjectionDate($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Projection Time </mat-label>
+            <input type="text" matInput placeholder="Enter movie projection time..." (keyup)="doSearchByProjectionTime($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Ticket Price </mat-label>
+            <input type="text" matInput placeholder="Enter movie ticket price..." (keyup)="doSearchByTicketPrice($event)">
+        </mat-form-field>
+        <mat-form-field class="search-bar">
+            <mat-label>Search by Rating </mat-label>
+            <input type="text" matInput placeholder="Enter movie rating..." (keyup)="doSearchByRating($event)">
+        </mat-form-field>
+    </mat-card-content>
+</mat-card>
 <div *ngIf="movies && movies.length > 0" class="searchContainer">
     <mat-card class="example-card-search" appearance="outlined" *ngFor="let movie of movies">
         <img mat-card-image src={{movie.poster}} alt="movie-poster" [alt]="movie.poster" class="movie-poster-search">

@@ -16,13 +16,11 @@
         <i class="fa-solid fa-user"></i> Profile 
     </a>
 
+    <a routerLink="/cart" mat-button><i class="fa-solid fa-cart-shopping"></i> Cart </a>
+
     <button mat-button *ngIf="service.getActiveUser()" (click)="doLogout()">
         <i class="fa-solid fa-right-from-bracket"></i> Log Out
     </button>
-
-    <a routerLink="/register" mat-button><i class="fa-solid fa-user-plus"></i> Register </a>
-
-    <a routerLink="/cart" mat-button><i class="fa-solid fa-cart-shopping"></i> Cart </a>
 
 </mat-toolbar>
 <router-outlet />

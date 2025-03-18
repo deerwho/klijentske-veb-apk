@@ -5,6 +5,7 @@ export interface OrderModel {
     startDate: string;
     count: number;
     pricePerItem: number;
+    projectionTime: number;
     status: 'reserved' | 'paid' | 'watched' | 'cancelled';
     rating: null | boolean;
 }

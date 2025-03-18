@@ -1,5 +1,11 @@
 .user-card{
+    margin-top: 200px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 350px;
+    width: 1000px;
+    height: 400px;
+}
+.no-border{
+    margin: 0;
+    padding: 0;
 }

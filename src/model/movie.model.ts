@@ -37,6 +37,5 @@ export interface MovieModel {
             name: string;
             createdAt: string;
         }
-
     }[];
 }

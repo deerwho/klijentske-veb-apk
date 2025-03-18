@@ -1,1 +1,48 @@
-<p>register works!</p>
+<mat-card class="auth-card">
+    <mat-card-header>
+        <h1>Please Register</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Input your email..." [(ngModel)]="email">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Input your password..." [(ngModel)]="password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Repeat Password</mat-label>
+            <input type="password" matInput placeholder="Repeat your password..." [(ngModel)]="repeatPassword">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>First name</mat-label>
+            <input type="text" matInput placeholder="Input your name..." [(ngModel)]="firstName">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Last name</mat-label>
+            <input type="text" matInput placeholder="Input your last name..." [(ngModel)]="lastName">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Phone number</mat-label>
+            <input type="tel" matInput placeholder="Input your phone number..." [(ngModel)]="phone">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Address</mat-label>
+            <input type="text" matInput placeholder="Input your address..." [(ngModel)]="address">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Select Favorite Movie Genre/s</mat-label>
+            <mat-select [(ngModel)]="favoriteGenre">
+                <mat-option *ngFor="let gen of genreList" [value]="gen.name">{{gen.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button (click)="doRegister()" color="primary"> <i class="fa-solid fa-right-to-bracket"></i> Register
+            now
+        </button>
+        <a routerLink="/login" mat-button color="primary"> <i class="fa-regular fa-address-card"></i> I already have
+            account </a>
+    </mat-card-actions>
+</mat-card>

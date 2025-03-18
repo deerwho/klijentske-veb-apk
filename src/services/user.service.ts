@@ -8,6 +8,11 @@ export class UserService {
             const arr: UserModel[] = [
                 {
                     email: 'user@kva.com',
+                    firstName: 'Jonas ',
+                    lastName: 'Kahnwald',
+                    phone: '+381647510113',
+                    address: 'Feldweg 8, 36777 Winden',
+                    favoriteGenre: 'Triler',
                     password: 'user123',
                     orders: []
                 }
@@ -18,6 +23,18 @@ export class UserService {
         return JSON.parse(localStorage.getItem('users')!);
     }
 
+    static createUser(model: UserModel){
+        const users = this.retriveUsers()
+        
+        for(let u of users){
+            if(u.email === model.email)
+                return false
+        }
+
+        users.push(model)
+        localStorage.setItem('users', JSON.stringify(users))
+        return true
+    }
     static login(email: string, password: string): boolean {
         for (let user of this.retriveUsers()) {
             if (user.email === email && user.password === password) {

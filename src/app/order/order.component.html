@@ -22,7 +22,15 @@
                     <mat-option [value]="15" > Middle of theatre - 15 <i class="fa-solid fa-euro-sign"></i> </mat-option>
                     <mat-option [value]="20" > First 10 rows - 20 <i class="fa-solid fa-euro-sign"></i></mat-option>
                 </mat-select>
-            </mat-form-field>  
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Projection time: </mat-label>
+                <mat-select [(ngModel)]="projectionTime">
+                    <mat-option [value]="15" > 15:00 h</mat-option>
+                    <mat-option [value]="18" > 18:00 h</mat-option>
+                    <mat-option [value]="21" > 21:00 h</mat-option>
+                </mat-select>
+            </mat-form-field>    
             <mat-form-field class="full-width">
                 <mat-label>Ticket count: </mat-label>
                 <input type="number" matInput [(ngModel)]="selectedTicketCount">

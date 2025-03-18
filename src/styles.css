@@ -63,3 +63,7 @@ body {
 .full-width{
     width: 100%;
 }
+.links{
+    color: #00dddd;
+    text-decoration: underline;
+}

@@ -11,10 +11,13 @@ const client = axios.create({
 });
 export class MovieService {
     static console: any;
-    static async getMovies( page: number = 0, size: number = 3) {
+    static async getMovies(page: number = 0, size: number = 3) {
         return client.get('/movie')
     };
     static async getMovieById(id: number) {
         return client.get(`/movie/${id}`);
-        } 
+    }
+    static async getGenre() {
+        return client.get('/genre')
+    };
 }

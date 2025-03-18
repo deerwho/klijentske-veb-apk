@@ -28,6 +28,7 @@ export class OrderComponent {
   public selectedTicketCount: number = 1;
   public selectedPrice: number = 150;
   public ticketCounts: number[] = Array.from({ length: 20 }, (_, i) => i + 1);
+  public projectionTime: number = 1;
 
   public constructor(private route: ActivatedRoute, public utils: UtilsService, private router: Router) {
     route.params.subscribe(params => {
@@ -40,6 +41,9 @@ export class OrderComponent {
   public updateCount(event: any){
     this.selectedTicketCount = event.target.value
   }
+  public updateTime(event: any){
+    this.projectionTime = event.target.value
+  }
   public doOrder() {
     const result = UserService.createOrder({
       id: new Date().getTime(),
@@ -48,9 +52,10 @@ export class OrderComponent {
       startDate: this.movie!.startDate,
       count: this.selectedTicketCount,
       pricePerItem: this.selectedPrice,
+      projectionTime: this.projectionTime,
       status: 'reserved',
       rating: null,
     })
-    result ? this.router.navigate(['/user']) : alert('An error occured while creating order')
+    result ? this.router.navigate(['/cart']) : alert('An error occured while creating order')
   }
 }

@@ -2,8 +2,11 @@
   <mat-card class="user-card" appearance="outlined">
     <mat-card-header>
       <img mat-card-avatar class="example-header-image" [src]="['https://ui-avatars.com/api/?name='+ user.email]">
-      <mat-card-title>{{user.email}}</mat-card-title>
-      <mat-card-subtitle>Total orders: {{user.orders.length}}</mat-card-subtitle>
+      <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
+      <mat-card-subtitle>
+        <p class="no-border">Total orders: {{user.orders.length}}</p>
+        <p class="no-border">Favorite Genre: {{user.favoriteGenre}}</p>
+      </mat-card-subtitle>
     </mat-card-header>
     <mat-card-actions>
       <button mat-button (click)="doChangePassword()">
@@ -11,53 +14,4 @@
       </button>
     </mat-card-actions>
   </mat-card>
-  <div *ngIf="user!.orders.length == 0">
-    <p>No orders found</p>
-  </div>
-  <div *ngIf="user.orders.length > 0">
-    <h2>Order list:</h2>
-    <mat-card class="orderList" appearance="outlined" *ngFor="let order of user.orders">
-      <mat-card-content>
-        <h3>Movie title: {{order.originalTitle}}</h3>
-        <p> <i class="fa-solid fa-money-bill-1-wave"></i> Price per ticket: {{order.pricePerItem}} <i class="fa-solid fa-euro-sign"></i> </p>
-        <p> <i class="fa-solid fa-ticket"></i> Number of tickets: {{order.count}}</p>
-        <p> <i class="fa-solid fa-calendar-days"></i> Start date: {{order.startDate}}</p>
-        <p> <i class="fa-solid fa-chart-simple"></i> Status: {{order.status.toUpperCase()}}</p>
-        <div *ngIf="order.status == 'reserved'">
-          <button type="button" mat-button (click)="doPay(order)">
-            <i class="fa-solid fa-credit-card"></i> Pay
-          </button>
-          <button type="button" mat-button (click)="doCancel(order)">
-            <i class="fa-solid fa-xmark"></i> Cancel
-          </button>
-        </div>
-        <div *ngIf="order.status == 'paid'">
-          <button type="button" mat-button (click)="doWatched(order)">
-            <i class="fa-solid fa-face-smile-beam"></i> I have watched the movie, lets rate it!
-          </button>
-        </div>
-        <div *ngIf="order.status == 'watched' && order.rating == null">
-          <button type="button" mat-button (click)="doRating(order, true)">
-            <i class="fa-solid fa-thumbs-up"></i> Like
-          </button>
-          <button type="button" mat-button (click)="doRating(order, false)">
-            <i class="fa-solid fa-thumbs-down"></i> Dislike
-          </button>
-          <i class="fa-solid fa-star-half-stroke"></i> Rating: 
-        </div>
-        <div *ngIf="order.rating == null">
-            NO RATING
-        </div>
-        <div *ngIf="order.rating == true">
-          <i class="fa-solid fa-thumbs-up"></i> LIKED
-        </div>
-        <div *ngIf="order.rating == false">
-          <i class="fa-solid fa-thumbs-down"></i> DISLIKED
-      </div>
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button [routerLink]="['/details/', order.movieId]"> <i class="fa-solid fa-up-right-from-square"></i>
-          Details </a>
-      </mat-card-actions>
-    </mat-card>
   </div>

@@ -18,7 +18,6 @@ export class AppComponent {
 
   public constructor(private router: Router) {}
   
-
   public doLogout(){
       localStorage.removeItem('active')
       this.router.navigate(['/login'])
