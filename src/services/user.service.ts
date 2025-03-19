@@ -14,7 +14,7 @@ export class UserService {
                     address: 'Feldweg 8, 36777 Winden',
                     favoriteGenre: 'Triler',
                     password: 'user123',
-                    orders: []
+                    orders: []  
                 }
             ];
             localStorage.setItem('users', JSON.stringify(arr));

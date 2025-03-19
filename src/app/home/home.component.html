@@ -10,7 +10,7 @@
                     {{ actor.actor.name }}{{ actor !== movie.movieActors[movie.movieActors.length - 1] ? ', ' : '' }}
                 </span>
             </p>
-            <p>{{movie.startDate}}</p>
+            <p>Datum projekcije: {{movie.startDate}}</p>
         </mat-card-content>
         <mat-card-actions>
             <a mat-button [routerLink]="['/details/', movie.movieId]"> <i class="fa-solid fa-up-right-from-square"></i> Details </a>
