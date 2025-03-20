@@ -3,7 +3,7 @@
     <mat-card-header>
       <img mat-card-avatar class="example-header-image" [src]="['https://ui-avatars.com/api/?name=' + user.email]">
       <mat-card-title>{{user.email}}</mat-card-title>
-      <mat-card-title>{{user.firstName}}  {{user.lastName}}</mat-card-title>
+      <mat-card-title>{{user.firstName}} {{user.lastName}}</mat-card-title>
       <mat-card-subtitle><br>
         <p class="no-border">Total orders: {{user.orders.length}}</p><br>
         <p class="no-border">Favorite Genre: {{user.favoriteGenre}}</p>
@@ -11,27 +11,61 @@
     </mat-card-header>
     <mat-card-content class="mat-card-content">
       <mat-accordion class="example-headers-align" multi>
-        <mat-expansion-panel>
+        <mat-expansion-panel class="full-width">
           <mat-expansion-panel-header>
             <mat-panel-title> Change Password <mat-icon></mat-icon><i class="fa-solid fa-key"></i></mat-panel-title>
           </mat-expansion-panel-header>
-          <mat-form-field>
+          <mat-form-field class="full-width">
             <mat-label> Old Password:</mat-label>
             <input matInput type="password" [(ngModel)]="oldPasswordValue">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="full-width">
             <mat-label> New Password: </mat-label>
             <input matInput type="password" [(ngModel)]="newPasswordValue">
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="full-width">
             <mat-label> Confirm New Password: </mat-label>
             <input matInput type="password" [(ngModel)]="repeatPasswordValue">
           </mat-form-field>
           <button mat-button (click)="doChangePassword()">
-            <i class="fa-solid fa-key"></i> Submit
+            <i class="fa-solid fa-paper-plane"></i> Submit
+          </button>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title> Edit Profile <mat-icon></mat-icon><i class="fa-solid fa-user-tag"></i></mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-form-field class="full-width">
+            <mat-label> Email:</mat-label>
+            <input matInput type="email" [(ngModel)]="user.email" disabled>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label> First Name: </mat-label>
+            <input matInput type="text" [(ngModel)]="user.firstName">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label> Last Name: </mat-label>
+            <input matInput type="text" [(ngModel)]="user.lastName">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label> Address: </mat-label>
+            <input matInput type="text" [(ngModel)]="user.address">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label> Phone: </mat-label>
+            <input matInput type="tel" [(ngModel)]="user.phone">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Select Favorite Movie Genre/s</mat-label>
+            <mat-select [(ngModel)]="user.favoriteGenre">
+              <mat-option *ngFor="let gen of genreList" [value]="gen.name">{{gen.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-button (click)="doUpdateUser()">
+            <i class="fa-solid fa-paper-plane"></i> Update
           </button>
         </mat-expansion-panel>
       </mat-accordion>
     </mat-card-content>
   </mat-card>
-  </div>
+</div>

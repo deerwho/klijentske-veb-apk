@@ -134,7 +134,7 @@ export class SearchComponent {
       this.movies = this.allData
       return
     }
-    this.movies = this.allData?.filter(obj => obj.toString().includes(input) ?? []
+    this.movies = this.allData?.filter(obj => obj.runTime.toString().includes(input) ?? []
      ) ?? []
   }
   public doSearchByRating(e: any) {

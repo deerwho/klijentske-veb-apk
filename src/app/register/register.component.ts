@@ -37,7 +37,8 @@ export class RegisterComponent {
     .then(rsp=> this.genreList = rsp.data)
   }
 
-  public doRegister(){
+
+    public doRegister(){
 
     if(this.email == '' || this.password == ''){
       alert('Email and password are required fields')

@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MovieService } from '../../services/movie.service';
 
 
 
@@ -20,11 +22,13 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
-  imports: [NgIf, MatButtonModule, MatCardModule, MatExpansionModule, MatAccordion, MatFormFieldModule, MatInputModule, MatIconModule, MatDatepickerModule, FormsModule],
+  imports: [NgIf, NgFor, MatButtonModule, MatCardModule, MatExpansionModule, MatAccordion, MatFormFieldModule, MatInputModule, MatIconModule, MatDatepickerModule, FormsModule, MatSelectModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
 export class UserComponent {
+
+  public genreList: any[] = []
   public user: UserModel | null = null;
   public oldPasswordValue = '';
   public newPasswordValue = '';
@@ -36,7 +40,16 @@ export class UserComponent {
       return;
     }
     this.user = UserService.getActiveUser();
-    console.log(this.user);
+    MovieService.getGenre()
+        .then(rsp=> this.genreList = rsp.data)
+  }
+
+  public doUpdateUser(){
+    if(this.user == null){
+      alert('User not defined')
+    }
+    UserService.updateUser(this.user!)
+    alert('User has been updated')
   }
 
   public doChangePassword() {

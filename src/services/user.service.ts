@@ -35,6 +35,21 @@ export class UserService {
         localStorage.setItem('users', JSON.stringify(users))
         return true
     }
+
+    static updateUser(model: UserModel){
+        const users = this.retriveUsers()
+        for(let u of users){
+            if(u.email === model.email){
+                u.firstName = model.firstName
+                u.lastName = model.lastName
+                u.address = model.address
+                u.phone = model.phone
+                u.favoriteGenre = model.favoriteGenre
+            }
+        }
+        localStorage.setItem('users', JSON.stringify(users))
+    }
+
     static login(email: string, password: string): boolean {
         for (let user of this.retriveUsers()) {
             if (user.email === email && user.password === password) {

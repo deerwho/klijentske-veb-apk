@@ -17,15 +17,19 @@
         <mat-card class="movie-card" appearance="outlined">
             <mat-card-content>
                 <mat-list role="list">
-                    <mat-list-item> <i class="fa-solid fa-heading"></i> Movie Title : {{movie?.originalTitle}}</mat-list-item>
-                    <mat-list-item> <i class="fa-regular fa-hourglass-half"></i> RunTime: {{movie?.runTime}}</mat-list-item>
-                    <mat-list-item> <i class="fa-solid fa-user-tie"></i> Movie Director: {{movie?.director?.name}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-heading"></i> Movie Title :
+                        {{movie?.originalTitle}}</mat-list-item>
+                    <mat-list-item> <i class="fa-regular fa-hourglass-half"></i> RunTime:
+                        {{movie?.runTime}}</mat-list-item>
+                    <mat-list-item> <i class="fa-solid fa-user-tie"></i> Movie Director:
+                        {{movie?.director?.name}}</mat-list-item>
                     <mat-list-item> <i class="fa-solid fa-star"></i> Movie Actors: {{getActors()}}</mat-list-item>
                     <mat-list-item> <i class="fa-solid fa-tape"></i> Movie Genre: {{getGenres()}}</mat-list-item>
-                    <mat-list-item> <i class="fa-solid fa-calendar"></i> Movie Date: {{movie?.startDate}}</mat-list-item>
+                        <mat-list-item> <i class="fa-solid fa-calendar"></i> Movie Date:
+                        {{movie?.startDate}}</mat-list-item>
+                    <p class="movie-desc"> Movie Description:</p>
+                    <p class="movie-description"> {{movie?.description}}</p>
                 </mat-list>
-                <p class="movie-desc"> Movie Description:</p>
-                <p class="movie-description"> {{movie?.description}}</p>
             </mat-card-content>
             <mat-card-actions>
                 <a mat-button [routerLink]="['/details/'+movie?.movieId+'/order']"> <i
